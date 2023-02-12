@@ -12,29 +12,29 @@ Print2DArray(firstArray);
 var secondArray = Generate2DArray(2, 2);
 System.Console.WriteLine("Вторая матрица:");
 Print2DArray(secondArray);
-var sumArray = GetDivArray(firstArray, secondArray);
+var multArray = GetMultiplicationOfArray(firstArray, secondArray);
 System.Console.WriteLine("Произведение двух матриц:");
-Print2DArray(sumArray);
+Print2DArray(multArray);
 
 //Метод находит произведение двух матриц:
-int[,] GetDivArray(int[,] arr1, int[,] arr2)
+int[,] GetMultiplicationOfArray(int[,] arr1, int[,] arr2)
 {
-    var sumArray = new int[arr1.GetLength(0), arr2.GetLength(1)];
+    var multArr = new int[arr1.GetLength(0), arr2.GetLength(1)];
     if (arr1.GetLength(1) == arr2.GetLength(0))
     {
-        for (int i = 0; i < sumArray.GetLength(0); i++)
+        for (int i = 0; i < multArr.GetLength(0); i++)
         {
-            for (int j = 0; j < sumArray.GetLength(1); j++)
+            for (int j = 0; j < multArr.GetLength(1); j++)
             {
-                sumArray[i, j] = 0;
+                multArr[i, j] = 0;
                 for (int k = 0; k < arr1.GetLength(1); k++)
                 {
-                    sumArray[i, j] += arr1[i, k] * arr2[k, j];
+                    multArr[i, j] += arr1[i, k] * arr2[k, j];
                 }
             }
         }
     }
-    return sumArray;
+    return multArr;
 }
 
 //Метод задает рандомный двумерный массив:
